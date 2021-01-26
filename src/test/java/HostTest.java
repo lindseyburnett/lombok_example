@@ -46,5 +46,12 @@ class HostTest {
     host0.setCoreCount(2);
     host0.setDisplayName("example.displayname.com");
     host0.setSocketCount(4);
+
+    System.out.println(host0);
+
+    String expected = "Host(displayName=example.displayname.com, socketCount=4, coreCount=2)";
+    String actual = host0.toString();
+
+    assertEquals(expected, actual);
   }
 }
