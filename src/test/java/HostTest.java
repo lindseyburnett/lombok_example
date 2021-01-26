@@ -49,9 +49,25 @@ class HostTest {
 
     System.out.println(host0);
 
-    String expected = "Host(displayName=example.displayname.com, socketCount=4, coreCount=2)";
+    String expected = "Host(displayName=example.displayname.com, socketCount=4, coreCount=2, hypervisor=false, isReportedViaConduit=false)";
     String actual = host0.toString();
 
     assertEquals(expected, actual);
+  }
+
+  @Test
+  void testBooleanGeneratedMethods() {
+    Host host0 = new Host();
+    host0.setHypervisor(true);
+
+    assertTrue(host0.isHypervisor());
+  }
+
+  @Test
+  void testBooleanNonGenerated() {
+    Host host0 = new Host();
+    host0.setIsReportedViaConduit(true);
+
+    assertTrue(host0.getIsReportedViaConduit());
   }
 }

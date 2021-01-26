@@ -19,6 +19,7 @@
  * in this software or its documentation.
  */
 
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,9 +31,20 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Host {
 
-    private String displayName;
-    private Integer socketCount;
-    private Integer coreCount;
+  private String displayName;
+  private Integer socketCount;
+  private Integer coreCount;
+  private boolean hypervisor;
 
+  @Getter(AccessLevel.NONE)
+  @Setter(AccessLevel.NONE)
+  private boolean isReportedViaConduit;
+
+  public boolean getIsReportedViaConduit() {
+    return isReportedViaConduit;
+  }
+
+  public void setIsReportedViaConduit(boolean isReportedViaConduit) {
+    this.isReportedViaConduit = isReportedViaConduit;
+  }
 }
-
